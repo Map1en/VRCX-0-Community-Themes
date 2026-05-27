@@ -9,7 +9,7 @@
   },
   "description": "Deep black theme with frosted glass styling and a CSS aurora gradient wallpaper for a sleek futuristic look.",
   "tags": ["dark", "aurora", "glass"],
-  "testedWith": "2.2.1",
+  "testedWith": "2.3.0",
   "remoteAssets": false,
   "darkMode": true,
   "accentMode": false

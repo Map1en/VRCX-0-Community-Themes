@@ -44,7 +44,8 @@ remote CSS file at runtime.
 ## Preview Generator
 
 Generate quick skeleton previews for VRCX-0 themes and layouts:
-https://vrcx.puddingkc.com/
+
+Third-party maintained tool: https://vrcx.puddingkc.com/
 
 ## Documentation
 

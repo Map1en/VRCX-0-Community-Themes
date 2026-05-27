@@ -3,6 +3,7 @@
   "schemaVersion": 1,
   "themes": [
     "trans-theme-example",
-    "darkblue-theme"
+    "darkblue-theme",
+    "aurora-theme"
   ]
 }

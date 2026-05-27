@@ -1,0 +1,16 @@
+{
+  "id": "aurora-theme",
+  "name": "Aurora",
+  "version": "1.0.0",
+  "author": {
+    "name": "PuddingKC",
+    "github": "Null-K",
+    "url": "https://github.com/Null-K"
+  },
+  "description": "Deep black theme with frosted glass styling and a CSS aurora gradient wallpaper for a sleek futuristic look.",
+  "tags": ["dark", "aurora", "glass"],
+  "testedWith": "2.2.1",
+  "remoteAssets": false,
+  "darkMode": true,
+  "accentMode": false
+}

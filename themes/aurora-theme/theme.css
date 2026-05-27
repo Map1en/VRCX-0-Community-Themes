@@ -1,0 +1,377 @@
+/*
+  Aurora — Deep blue-black theme with CSS aurora gradient for VRCX-0.
+  Theme by: PuddingKC
+*/
+
+:root {
+  --aurora-cyan: #06b6d4;
+  --aurora-purple: #a855f7;
+  --aurora-pink: #ec4899;
+  --aurora-green: #10b981;
+  --aurora-base: 12 14 28;
+  --aurora-panel: 16 18 36;
+  --aurora-hairline: rgb(255 255 255 / 0.07);
+
+  --background: rgb(12 14 28 / 0.30);
+  --foreground: rgb(230 236 250);
+  --card: rgb(18 20 40 / 0.25);
+  --card-foreground: rgb(230 236 250);
+  --popover: rgb(24 26 48 / 0.75);
+  --popover-foreground: rgb(230 236 250);
+  --primary: rgb(180 160 220);
+  --primary-foreground: rgb(12 10 20);
+  --secondary: rgb(255 255 255 / 0.08);
+  --secondary-foreground: rgb(230 236 250);
+  --muted: rgb(255 255 255 / 0.05);
+  --muted-foreground: rgb(180 190 210);
+  --accent: rgb(168 85 247 / 0.18);
+  --accent-foreground: rgb(255 255 255);
+  --destructive: rgb(239 68 68);
+  --destructive-foreground: rgb(255 255 255);
+  --border: var(--aurora-hairline);
+  --input: rgb(255 255 255 / 0.09);
+  --ring: rgb(180 160 220 / 0.30);
+  --sidebar: rgb(14 16 32 / 0.40);
+  --sidebar-foreground: rgb(230 236 250);
+  --sidebar-primary: rgb(180 160 220);
+  --sidebar-primary-foreground: rgb(12 10 20);
+  --sidebar-accent: rgb(255 255 255 / 0.10);
+  --sidebar-accent-foreground: rgb(255 255 255);
+  --sidebar-border: var(--aurora-hairline);
+  --sidebar-ring: rgb(180 160 220 / 0.30);
+
+  /* --- 背景 --- */
+  --vrcx-0-app-surface: transparent;
+  --vrcx-0-wallpaper-image: linear-gradient(
+    135deg,
+    rgb(12 14 28) 0%,
+    rgb(8 42 68) 12%,
+    rgb(6 78 106) 22%,
+    rgb(18 44 82) 32%,
+    rgb(30 10 60) 42%,
+    rgb(128 60 200 / 0.5) 52%,
+    rgb(200 70 160 / 0.35) 62%,
+    rgb(236 72 153 / 0.25) 72%,
+    rgb(16 185 129 / 0.2) 82%,
+    rgb(10 40 60) 92%,
+    rgb(12 14 28) 100%
+  );
+  --vrcx-0-wallpaper-size: 100% 100%;
+  --vrcx-0-wallpaper-position: center;
+  --vrcx-0-wallpaper-repeat: no-repeat;
+  --vrcx-0-wallpaper-opacity: 1;
+  --vrcx-0-wallpaper-filter: saturate(1.2) brightness(1.0);
+
+  --vrcx-0-titlebar-surface: rgb(var(--aurora-panel) / 0.40);
+  --vrcx-0-main-surface: transparent;
+  --vrcx-0-main-content-surface: rgb(12 14 28 / 0.15);
+  --vrcx-0-sidebar-surface: rgb(var(--aurora-panel) / 0.42);
+  --vrcx-0-sidebar-inset-surface: rgb(12 14 28 / 0.12);
+  --vrcx-0-side-panel-surface: rgb(var(--aurora-panel) / 0.42);
+  --vrcx-0-statusbar-surface: rgb(10 12 24 / 0.50);
+  --vrcx-0-table-surface: rgb(16 18 36 / 0.30);
+  --vrcx-0-table-header-surface: rgb(24 26 48 / 0.35);
+}
+
+/* --- 毛玻璃 --- */
+.vrcx-0-titlebar,
+.vrcx-0-sidebar-surface,
+.vrcx-0-side-panel,
+.vrcx-0-statusbar {
+  backdrop-filter: blur(32px) saturate(1.4);
+}
+
+.vrcx-0-titlebar {
+  background:
+    linear-gradient(90deg, rgb(6 182 212 / 0.06), rgb(168 85 247 / 0.06)),
+    var(--vrcx-0-titlebar-surface);
+}
+
+.vrcx-0-sidebar-surface {
+  background:
+    linear-gradient(180deg, rgb(6 182 212 / 0.05), rgb(168 85 247 / 0.05)),
+    var(--vrcx-0-sidebar-surface);
+}
+
+.vrcx-0-side-panel {
+  background:
+    linear-gradient(180deg, rgb(168 85 247 / 0.05), rgb(236 72 153 / 0.04)),
+    var(--vrcx-0-side-panel-surface);
+}
+
+.vrcx-0-statusbar {
+  background:
+    linear-gradient(90deg, rgb(6 182 212 / 0.05), rgb(168 85 247 / 0.04)),
+    var(--vrcx-0-statusbar-surface);
+}
+
+.vrcx-0-main-content {
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.04);
+}
+
+.vrcx-0-app-root,
+.vrcx-0-titlebar,
+.vrcx-0-main-shell,
+.vrcx-0-main-content,
+.vrcx-0-sidebar-surface,
+.vrcx-0-side-panel,
+.vrcx-0-statusbar,
+.vrcx-0-data-table {
+  color: rgb(230 236 250);
+}
+
+.vrcx-0-titlebar,
+.vrcx-0-sidebar-surface,
+.vrcx-0-side-panel,
+.vrcx-0-statusbar,
+.vrcx-0-data-table {
+  border-color: var(--aurora-hairline);
+}
+
+[data-slot='dialog-overlay'],
+[data-slot='alert-dialog-overlay'] {
+  background-color: rgb(6 8 16 / 0.15);
+  backdrop-filter: blur(16px) saturate(1.3);
+}
+
+[data-slot='dialog-content'],
+[data-slot='alert-dialog-content'] {
+  background:
+    linear-gradient(135deg, rgb(6 182 212 / 0.06), rgb(168 85 247 / 0.05)),
+    var(--popover);
+  border: 1px solid rgb(255 255 255 / 0.09);
+  box-shadow:
+    0 24px 80px rgb(0 0 0 / 0.40),
+    inset 0 1px 0 rgb(255 255 255 / 0.06);
+  backdrop-filter: blur(40px) saturate(1.4);
+}
+
+[data-slot='dialog-content'] [data-slot='card'],
+[data-slot='alert-dialog-content'] [data-slot='card'],
+[data-slot='dialog-content'] .bg-card,
+[data-slot='alert-dialog-content'] .bg-card,
+[data-slot='dialog-content'] .bg-background,
+[data-slot='alert-dialog-content'] .bg-background {
+  background-color: rgb(14 16 32 / 0.25);
+  backdrop-filter: blur(28px) saturate(1.3);
+}
+
+[data-slot='dialog-content'] .bg-muted,
+[data-slot='alert-dialog-content'] .bg-muted {
+  background-color: rgb(255 255 255 / 0.06);
+}
+
+.vrcx-0-data-table {
+  background:
+    linear-gradient(135deg, rgb(6 182 212 / 0.03), rgb(168 85 247 / 0.03)),
+    var(--vrcx-0-table-surface);
+  backdrop-filter: blur(24px) saturate(1.3);
+}
+
+.vrcx-0-table-header {
+  background:
+    linear-gradient(90deg, rgb(6 182 212 / 0.05), rgb(168 85 247 / 0.04)),
+    var(--vrcx-0-table-header-surface);
+  backdrop-filter: blur(24px) saturate(1.3);
+}
+
+.vrcx-0-data-table :is(th, td),
+.vrcx-0-table-header,
+.text-foreground,
+.text-card-foreground,
+.text-popover-foreground,
+.text-sidebar-foreground,
+.text-secondary-foreground {
+  color: rgb(230 236 250);
+}
+
+.vrcx-0-sidebar-surface [data-slot='sidebar-menu-button'][data-active='true'],
+.vrcx-0-sidebar-surface [data-slot='sidebar-menu-button']:hover {
+  background: linear-gradient(
+    90deg,
+    rgb(6 182 212 / 0.14),
+    rgb(168 85 247 / 0.12)
+  );
+  color: rgb(255 255 255);
+}
+
+.vrcx-0-app-root :focus-visible {
+  outline-color: rgb(255 255 255 / 0.25);
+}
+
+.vrcx-0-app-root [data-slot='button'] {
+  border-color: transparent !important;
+  box-shadow: none;
+}
+
+.bg-background {
+  background-color: var(--background);
+  backdrop-filter: blur(24px) saturate(1.3);
+}
+
+.bg-card {
+  background-color: var(--card);
+  backdrop-filter: blur(24px) saturate(1.3);
+}
+
+.bg-muted {
+  background-color: var(--muted);
+  backdrop-filter: blur(24px) saturate(1.3);
+}
+
+.border,
+[class*='border-'] {
+  border-color: var(--aurora-hairline);
+}
+
+.text-muted-foreground {
+  color: rgb(180 190 210 / 0.88);
+}
+
+::selection {
+  background-color: rgb(168 85 247 / 0.30);
+  color: #ffffff;
+}
+
+input::selection,
+textarea::selection {
+  background-color: rgb(168 85 247 / 0.25);
+  color: #ffffff;
+}
+
+[role="switch"][data-state="checked"] {
+  background-color: rgb(168 85 247 / 0.55);
+  border-color: rgb(168 85 247 / 0.55);
+}
+
+[role="switch"][data-state="unchecked"] {
+  background-color: rgb(255 255 255 / 0.08);
+}
+
+[role="switch"] span {
+  background-color: #ffffff;
+}
+
+[data-slot="toggle-group-item"][data-state="on"],
+[data-slot="toggle-group-item"][aria-pressed="true"] {
+  background-color: rgb(255 255 255 / 0.12);
+  color: #ffffff;
+}
+
+[data-slot="toggle-group-item"]:hover,
+[data-slot="toggle-group-item"]:active {
+  background-color: rgb(255 255 255 / 0.08);
+  color: rgb(230 236 250);
+}
+
+[data-slot="tabs-list"] [data-slot="tabs-trigger"][data-state="active"] {
+  background-color: rgb(255 255 255 / 0.12);
+  color: #ffffff;
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.06);
+}
+
+[data-slot="tabs-list"] [data-slot="tabs-trigger"]:hover {
+  background-color: rgb(255 255 255 / 0.06);
+  color: rgb(230 236 250);
+}
+
+[data-vrcx-0-surface="data-table"] tbody tr:hover,
+[data-vrcx-0-surface="data-table"] tbody tr[data-state="selected"],
+[data-vrcx-0-surface="data-table"] tbody tr[aria-selected="true"] {
+  background-color: rgb(255 255 255 / 0.06);
+  color: #ffffff;
+}
+
+[data-vrcx-0-surface="data-table"] button:hover,
+[data-vrcx-0-surface="data-table"] a:hover {
+  background-color: transparent;
+  color: rgb(230 236 250);
+}
+
+[data-vrcx-0-surface="data-table"] [data-slot="badge"] {
+  border-color: rgb(255 255 255 / 0.15);
+  color: rgb(200 210 230);
+}
+
+[data-vrcx-0-surface="main-content"] .hover\:bg-muted:hover {
+  background-color: rgb(255 255 255 / 0.06);
+  color: rgb(230 236 250);
+}
+
+.friend-view__scroll [data-slot="context-menu-trigger"]:hover {
+  background-color: rgb(255 255 255 / 0.06);
+}
+
+button[data-variant="destructive"]:hover,
+button.destructive:hover {
+  background-color: color-mix(in oklab, var(--destructive) 28%, transparent);
+  color: var(--destructive);
+}
+
+button[data-variant="destructive"]:active,
+button.destructive:active {
+  background-color: color-mix(in oklab, var(--destructive) 38%, transparent);
+  color: var(--destructive);
+}
+
+[data-slot="toggle-group-item"][data-variant="destructive"][data-state="on"],
+[data-slot="toggle-group-item"].destructive[data-state="on"] {
+  background-color: var(--destructive);
+  color: var(--destructive-foreground);
+}
+
+[data-vrcx-0-surface="data-table"] button[data-variant="destructive"]:hover {
+  background-color: color-mix(in oklab, var(--destructive) 28%, transparent);
+  color: var(--destructive);
+}
+
+[data-slot="tooltip-content"],
+[data-slot="popover-content"],
+[data-slot="dropdown-menu-content"],
+[data-slot="context-menu-content"],
+[data-slot="select-content"] {
+  background: rgb(24 26 48 / 0.85);
+  border: 1px solid rgb(255 255 255 / 0.10);
+  backdrop-filter: blur(32px) saturate(1.4);
+  color: rgb(230 236 250);
+  box-shadow:
+    0 12px 40px rgb(0 0 0 / 0.30),
+    inset 0 1px 0 rgb(255 255 255 / 0.06);
+}
+
+[data-slot="dropdown-menu-item"]:hover,
+[data-slot="dropdown-menu-item"][data-highlighted],
+[data-slot="context-menu-item"]:hover,
+[data-slot="context-menu-item"][data-highlighted],
+[data-slot="select-item"]:hover,
+[data-slot="select-item"][data-highlighted] {
+  background-color: rgb(255 255 255 / 0.08);
+  color: #ffffff;
+}
+
+[data-slot="scroll-area-thumb"],
+[data-radix-scroll-area-thumb] {
+  background-color: rgb(255 255 255 / 0.14);
+  border-radius: 9999px;
+}
+
+[data-slot="scroll-area-thumb"]:hover,
+[data-radix-scroll-area-thumb]:hover {
+  background-color: rgb(255 255 255 / 0.22);
+}
+
+[data-slot="input"],
+[data-slot="textarea"],
+input,
+textarea {
+  border-color: var(--aurora-hairline);
+  color: rgb(230 236 250);
+}
+
+[data-slot="input"]:focus,
+[data-slot="textarea"]:focus,
+input:focus,
+textarea:focus {
+  border-color: rgb(255 255 255 / 0.18);
+  box-shadow: 0 0 0 2px rgb(255 255 255 / 0.06);
+}

@@ -1,0 +1,16 @@
+{
+  "id": "one-dark-theme",
+  "name": "One Dark",
+  "version": "1.0.0",
+  "author": {
+    "name": "dreaminko",
+    "github": "dreaminko",
+    "url": "https://github.com/dreaminko"
+  },
+  "description": "A clean dark theme with One Dark palette.",
+  "tags": ["dark", "blue", "one-dark"],
+  "testedWith": "2.3.0",
+  "remoteAssets": false,
+  "darkMode": true,
+  "accentMode": true
+}

@@ -1,0 +1,239 @@
+/* Zed Theme — One Dark palette (from vscode-one-dark-theme source) */
+/* Base: #282C34  |  Primary: #61AFEF  |  Focus: #528BFF */
+
+.dark {
+    /* ══════════ 基础背景与文字 ══════════ */
+    --background: #282c34 !important; /* editor.background */
+    --foreground: #abb2bf !important; /* ivory — 主文本 */
+
+    /* ══════════ 卡片与浮层 ══════════ */
+    --card: #2c313c !important; /* lineHighlightBackground */
+    --card-foreground: #abb2bf !important;
+    --popover: #2c313a !important; /* suggestWidget.selected / statusBarItem.hover */
+    --popover-foreground: #abb2bf !important;
+
+    /* ══════════ 主题色 ══════════ */
+    --primary: #61afef !important; /* malibu — One Dark 签名蓝 */
+    --primary-foreground: #282c34 !important;
+    --sidebar-accent: #454a56 !important;
+
+    /* ══════════ 次要 ══════════ */
+    --secondary: #404754 !important; /* button.secondaryBackground */
+    --secondary-foreground: #abb2bf !important;
+
+    /* ══════════ 静音/辅助 ══════════ */
+    --muted: #2c313c !important; /* lineHighlightBackground */
+    --muted-foreground: #5c6370 !important; /* stone — 注释灰 */
+
+    /* ══════════ 强调/悬停 ══════════ */
+    --accent: #3a3f4b !important; /* list.inactiveSelectionBackground */
+    --accent-foreground: #d7dae0 !important; /* list.inactiveSelectionForeground */
+
+    /* ══════════ 危险 ══════════ */
+    --destructive: #e06c75 !important; /* coral — One Dark 红 */
+    --destructive-foreground: #282c34 !important;
+
+    /* ══════════ 边框与输入 ══════════ */
+    --border: #181a1f !important; /* border / editorGroup.background */
+    --input: #1d1f23 !important; /* input.background */
+    --input-foreground: #abb2bf !important;
+    --ring: #528bff !important; /* editorCursor.foreground */
+
+    /* ══════════ 语义化 ══════════ */
+    --success: #98c379 !important; /* sage — One Dark 绿 */
+    --success-foreground: #282c34 !important;
+    --warning: #d19a66 !important; /* whiskey — One Dark 橙 */
+    --warning-foreground: #282c34 !important;
+    --info: #56b6c2 !important; /* cyan — One Dark 青 */
+    --info-foreground: #282c34 !important;
+
+    /* ══════════ Switch ══════════ */
+    --switch-checked: #61afef !important;
+    --switch-checked-thumb: #ffffff !important;
+    --switch-unchecked: #2c313c !important;
+    --switch-unchecked-thumb: #5c6370 !important;
+}
+
+/* ══════════ Switch 状态 ══════════ */
+.dark [role="switch"][data-state="checked"] {
+    background-color: var(--switch-checked) !important;
+    border-color: var(--switch-checked) !important;
+}
+.dark [role="switch"][data-state="unchecked"] {
+    background-color: var(--switch-unchecked) !important;
+}
+.dark [role="switch"] span {
+    background-color: var(--switch-unchecked-thumb) !important;
+}
+.dark [role="switch"][data-state="checked"] span {
+    background-color: var(--switch-checked-thumb) !important;
+}
+
+/* ══════════ 选中文本 ══════════ */
+.dark input::selection,
+.dark textarea::selection {
+    background-color: rgba(97, 175, 239, 0.4) !important;
+    color: #ffffff !important;
+}
+::selection {
+    background-color: rgba(97, 175, 239, 0.5) !important;
+    color: #ffffff !important;
+}
+
+/* ══════════ Surface 变量 ══════════ */
+:root {
+    --vrcx-0-app-surface: #282c34 !important;
+    --vrcx-0-titlebar-surface: #3b414d !important;
+    --vrcx-0-main-surface: #282c34 !important;
+    --vrcx-0-main-content-surface: #282c33 !important;
+    --vrcx-0-sidebar-surface: #2f343e !important;
+    --vrcx-0-sidebar-inset-surface: #282c34 !important;
+    --vrcx-0-side-panel-surface: #2f343e !important;
+    --vrcx-0-statusbar-surface: #3b414d !important;
+    --vrcx-0-table-surface: #2c313a !important;
+    --vrcx-0-table-header-surface: #21252b !important;
+}
+
+/* ══════════ 顶栏 ══════════ */
+.vrcx-0-titlebar,
+[data-vrcx-0-surface="titlebar"] {
+    background-color: #3b414d !important;
+}
+
+/* ══════════ 侧边栏 ══════════ */
+.vrcx-0-sidebar-surface,
+[data-vrcx-0-surface="sidebar"] {
+    background-color: #2f343e !important;
+    border-right-color: #181a1f !important;
+}
+
+/* ══════════ 侧边栏选中项 ══════════ */
+[data-vrcx-0-surface="sidebar"] [aria-current="page"],
+[data-vrcx-0-surface="sidebar"] [data-state="active"],
+[data-vrcx-0-surface="sidebar"] [data-active="true"] {
+    background-color: #454a56 !important;
+}
+
+/* ══════════ 侧边栏悬停 ══════════ */
+[data-vrcx-0-surface="sidebar"] a:hover,
+[data-vrcx-0-surface="sidebar"] button:hover,
+[data-vrcx-0-surface="sidebar"] [role="button"]:hover {
+    background-color: #363c46 !important;
+}
+
+/* ══════════ 侧面板（右侧好友栏） ══════════ */
+.vrcx-0-side-panel,
+[data-vrcx-0-surface="side-panel"] {
+    background-color: #2f343e !important;
+}
+
+/* ══════════ 状态栏 ══════════ */
+.vrcx-0-statusbar,
+[data-vrcx-0-surface="statusbar"] {
+    background-color: #3b414d !important;
+    border-top-color: #181a1f !important;
+    color: #c5cacf !important;
+}
+[data-vrcx-0-surface="statusbar"] * {
+    color: #c5cacf !important;
+}
+
+/* ══════════ 主内容区 ══════════ */
+.vrcx-0-main-content,
+[data-vrcx-0-surface="main-content"] {
+    background-color: #282c33 !important;
+}
+
+/* ══════════ 按钮与链接悬停 ══════════ */
+button:hover,
+a:hover {
+    background-color: rgba(77, 120, 204, 0.2) !important; /* #4D78CC tint */
+    color: #61afef !important;
+}
+
+/* ══════════ Toggle Group ══════════ */
+[data-slot="toggle-group-item"][data-state="on"],
+[data-slot="toggle-group-item"][aria-pressed="true"] {
+    background-color: #4d78cc !important; /* button.background */
+    color: #ffffff !important;
+}
+[data-slot="toggle-group-item"]:hover,
+[data-slot="toggle-group-item"]:active {
+    background-color: rgba(77, 120, 204, 0.2) !important;
+    color: #61afef !important;
+}
+
+/* ══════════ DataTable 行悬停 ══════════ */
+[data-vrcx-0-surface="data-table"] tbody tr:hover,
+[data-vrcx-0-surface="data-table"] tbody tr[data-state="selected"],
+[data-vrcx-0-surface="data-table"] tbody tr[aria-selected="true"] {
+    background-color: rgba(77, 120, 204, 0.22) !important;
+    color: #ffffff !important;
+}
+[data-vrcx-0-surface="data-table"] button:hover,
+[data-vrcx-0-surface="data-table"] a:hover {
+    background-color: transparent !important;
+    color: #61afef !important;
+}
+
+/* ══════════ 主内容区按钮悬停 ══════════ */
+[data-vrcx-0-surface="main-content"] .hover\:bg-muted:hover {
+    background-color: rgba(77, 120, 204, 0.2) !important;
+    color: #61afef !important;
+}
+
+/* ══════════ Tabs 激活态 ══════════ */
+[data-slot="tabs-list"] [data-slot="tabs-trigger"][data-state="active"] {
+    background-color: #4d78cc !important; /* button.background */
+    color: #ffffff !important;
+}
+
+/* ══════════ 好友卡片悬停 ══════════ */
+.friend-view__scroll [data-slot="context-menu-trigger"]:hover {
+    background-color: rgba(77, 120, 204, 0.2) !important;
+}
+
+/* ══════════ Destructive 按钮保护 ══════════ */
+button[data-variant="destructive"]:hover,
+button.destructive:hover,
+button.danger:hover {
+    background-color: color-mix(
+        in oklab,
+        var(--destructive) 30%,
+        transparent
+    ) !important;
+    color: var(--destructive) !important;
+}
+button[data-variant="destructive"]:active,
+button.destructive:active,
+button.danger:active {
+    background-color: color-mix(
+        in oklab,
+        var(--destructive) 40%,
+        transparent
+    ) !important;
+    color: var(--destructive) !important;
+}
+[data-slot="toggle-group-item"][data-variant="destructive"][data-state="on"],
+[data-slot="toggle-group-item"].destructive[data-state="on"] {
+    background-color: var(--destructive) !important;
+    color: var(--destructive-foreground) !important;
+}
+[data-vrcx-0-surface="data-table"] button[data-variant="destructive"]:hover {
+    background-color: color-mix(
+        in oklab,
+        var(--destructive) 30%,
+        transparent
+    ) !important;
+    color: var(--destructive) !important;
+}
+[data-vrcx-0-surface="main-content"]
+    .hover\:bg-muted:hover
+    button[data-variant="destructive"] {
+    background-color: color-mix(
+        in oklab,
+        var(--destructive) 30%,
+        transparent
+    ) !important;
+    color: var(--destructive) !important;
+}

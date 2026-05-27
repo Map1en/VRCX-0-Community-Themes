@@ -14,6 +14,7 @@ https://raw.githubusercontent.com/Map1en/VRCX-0-Community-Themes/master/themes/i
 
 - [Trans Theme Example](themes/trans-theme-example/) by Map1en
 - [Darkblue Theme](themes/darkblue-theme/) by xiaoBingge114514
+- [Aurora Theme](themes/aurora-theme/) by PuddingKC
 
 ## Theme Developer Build
 

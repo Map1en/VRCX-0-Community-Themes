@@ -4,6 +4,7 @@
   "themes": [
     "trans-theme-example",
     "darkblue-theme",
-    "aurora-theme"
+    "aurora-theme",
+    "one-dark-theme"
   ]
 }

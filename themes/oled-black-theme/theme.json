@@ -8,7 +8,7 @@
     "url": "https://github.com/Null-K"
   },
   "description": "Pure black theme optimized for OLED displays.",
-  "tags": ["dark", "oled", "black", "minimal", "contrast"],
+  "tags": ["dark", "oled", "minimal"],
   "testedWith": "2.3.0",
   "remoteAssets": false,
   "darkMode": true,

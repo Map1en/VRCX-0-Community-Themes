@@ -8,7 +8,7 @@
     "url": "https://github.com/Null-K"
   },
   "description": "Clean light theme based on the Nord Arctic palette.",
-  "tags": ["light", "nord", "arctic", "minimal"],
+  "tags": ["light", "nord", "arctic"],
   "testedWith": "2.3.0",
   "remoteAssets": false,
   "darkMode": false,

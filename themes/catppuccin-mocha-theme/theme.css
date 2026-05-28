@@ -1,0 +1,300 @@
+/*
+  Catppuccin Mocha — Warm pastel dark theme for VRCX-0.
+  Palette: https://github.com/catppuccin/catppuccin
+  Theme by: PuddingKC
+*/
+
+:root {
+  --ctp-rosewater: #f5e0dc;
+  --ctp-flamingo: #f2cdcd;
+  --ctp-pink: #f5c2e7;
+  --ctp-mauve: #cba6f7;
+  --ctp-red: #f38ba8;
+  --ctp-maroon: #eba0ac;
+  --ctp-peach: #fab387;
+  --ctp-yellow: #f9e2af;
+  --ctp-green: #a6e3a1;
+  --ctp-teal: #94e2d5;
+  --ctp-sky: #89dceb;
+  --ctp-sapphire: #74c7ec;
+  --ctp-blue: #89b4fa;
+  --ctp-lavender: #b4befe;
+  --ctp-text: #cdd6f4;
+  --ctp-subtext1: #bac2de;
+  --ctp-subtext0: #a6adc8;
+  --ctp-overlay2: #9399b2;
+  --ctp-overlay1: #7f849c;
+  --ctp-overlay0: #6c7086;
+  --ctp-surface2: #585b70;
+  --ctp-surface1: #45475a;
+  --ctp-surface0: #313244;
+  --ctp-base: #1e1e2e;
+  --ctp-mantle: #181825;
+  --ctp-crust: #11111b;
+}
+
+.dark {
+  --background: var(--ctp-base);
+  --foreground: var(--ctp-text);
+  --card: var(--ctp-surface0);
+  --card-foreground: var(--ctp-text);
+  --popover: var(--ctp-surface0);
+  --popover-foreground: var(--ctp-text);
+  --primary: var(--ctp-mauve);
+  --primary-foreground: var(--ctp-crust);
+  --secondary: var(--ctp-surface1);
+  --secondary-foreground: var(--ctp-text);
+  --muted: var(--ctp-surface0);
+  --muted-foreground: var(--ctp-overlay1);
+  --accent: var(--ctp-surface1);
+  --accent-foreground: var(--ctp-text);
+  --destructive: var(--ctp-red);
+  --destructive-foreground: var(--ctp-crust);
+  --border: var(--ctp-surface1);
+  --input: var(--ctp-surface0);
+  --input-foreground: var(--ctp-text);
+  --ring: var(--ctp-mauve);
+
+  --success: var(--ctp-green);
+  --success-foreground: var(--ctp-crust);
+  --warning: var(--ctp-peach);
+  --warning-foreground: var(--ctp-crust);
+  --info: var(--ctp-sky);
+  --info-foreground: var(--ctp-crust);
+
+  --switch-checked: var(--ctp-mauve);
+  --switch-checked-thumb: var(--ctp-crust);
+  --switch-unchecked: var(--ctp-surface1);
+  --switch-unchecked-thumb: var(--ctp-overlay0);
+
+  --sidebar-primary: var(--ctp-mauve);
+  --sidebar-primary-foreground: var(--ctp-crust);
+  --sidebar-accent: var(--ctp-surface1);
+  --sidebar-accent-foreground: var(--ctp-text);
+}
+
+:root {
+  --vrcx-0-app-surface: var(--ctp-base);
+  --vrcx-0-titlebar-surface: var(--ctp-crust);
+  --vrcx-0-main-surface: var(--ctp-base);
+  --vrcx-0-main-content-surface: var(--ctp-base);
+  --vrcx-0-sidebar-surface: var(--ctp-mantle);
+  --vrcx-0-sidebar-inset-surface: var(--ctp-crust);
+  --vrcx-0-side-panel-surface: var(--ctp-mantle);
+  --vrcx-0-statusbar-surface: var(--ctp-crust);
+  --vrcx-0-table-surface: var(--ctp-mantle);
+  --vrcx-0-table-header-surface: var(--ctp-crust);
+}
+
+.vrcx-0-titlebar,
+[data-vrcx-0-surface="titlebar"] {
+  background-color: var(--ctp-crust);
+  color: var(--ctp-text);
+}
+
+.vrcx-0-sidebar-surface,
+[data-vrcx-0-surface="sidebar"] {
+  background-color: var(--ctp-mantle);
+  border-right-color: var(--ctp-surface0);
+}
+
+[data-vrcx-0-surface="sidebar"] [aria-current="page"],
+[data-vrcx-0-surface="sidebar"] [data-state="active"],
+[data-vrcx-0-surface="sidebar"] [data-active="true"] {
+  background-color: var(--ctp-surface0);
+  color: var(--ctp-mauve);
+}
+
+[data-vrcx-0-surface="sidebar"] a:hover,
+[data-vrcx-0-surface="sidebar"] button:hover,
+[data-vrcx-0-surface="sidebar"] [role="button"]:hover {
+  background-color: var(--ctp-surface0);
+  color: var(--ctp-text);
+}
+
+.vrcx-0-side-panel,
+[data-vrcx-0-surface="side-panel"] {
+  background-color: var(--ctp-mantle);
+  border-left-color: var(--ctp-surface0);
+}
+
+.vrcx-0-statusbar,
+[data-vrcx-0-surface="statusbar"] {
+  background-color: var(--ctp-crust);
+  border-top-color: var(--ctp-surface0);
+  color: var(--ctp-subtext0);
+}
+
+.vrcx-0-main-content,
+[data-vrcx-0-surface="main-content"] {
+  background-color: var(--ctp-base);
+}
+
+button:hover,
+a:hover {
+  background-color: var(--ctp-surface1);
+  color: var(--ctp-mauve);
+}
+
+[role="switch"][data-state="checked"] {
+  background-color: var(--ctp-mauve);
+  border-color: var(--ctp-mauve);
+}
+[role="switch"][data-state="unchecked"] {
+  background-color: var(--ctp-surface1);
+}
+[role="switch"] span {
+  background-color: var(--ctp-overlay0);
+}
+[role="switch"][data-state="checked"] span {
+  background-color: var(--ctp-crust);
+}
+
+::selection {
+  background-color: rgba(203, 166, 247, 0.35);
+  color: #ffffff;
+}
+input::selection,
+textarea::selection {
+  background-color: rgba(203, 166, 247, 0.30);
+  color: #ffffff;
+}
+
+[data-slot="toggle-group-item"][data-state="on"],
+[data-slot="toggle-group-item"][aria-pressed="true"] {
+  background-color: var(--ctp-mauve);
+  color: var(--ctp-crust);
+}
+[data-slot="toggle-group-item"]:hover,
+[data-slot="toggle-group-item"]:active {
+  background-color: var(--ctp-surface1);
+  color: var(--ctp-lavender);
+}
+
+[data-slot="tabs-list"] [data-slot="tabs-trigger"][data-state="active"] {
+  background-color: var(--ctp-surface1);
+  color: var(--ctp-mauve);
+  box-shadow: inset 0 -2px 0 var(--ctp-mauve);
+}
+[data-slot="tabs-list"] [data-slot="tabs-trigger"]:hover {
+  background-color: var(--ctp-surface0);
+  color: var(--ctp-text);
+}
+
+.vrcx-0-data-table,
+[data-vrcx-0-surface="data-table"] {
+  background-color: var(--ctp-mantle);
+}
+.vrcx-0-table-header {
+  background-color: var(--ctp-crust);
+  color: var(--ctp-subtext0);
+}
+[data-vrcx-0-surface="data-table"] tbody tr:hover,
+[data-vrcx-0-surface="data-table"] tbody tr[data-state="selected"],
+[data-vrcx-0-surface="data-table"] tbody tr[aria-selected="true"] {
+  background-color: var(--ctp-surface0);
+  color: var(--ctp-text);
+}
+[data-vrcx-0-surface="data-table"] button:hover,
+[data-vrcx-0-surface="data-table"] a:hover {
+  background-color: transparent;
+  color: var(--ctp-mauve);
+}
+[data-vrcx-0-surface="data-table"] [data-slot="badge"] {
+  border-color: var(--ctp-surface2);
+  color: var(--ctp-subtext1);
+}
+
+[data-vrcx-0-surface="main-content"] .hover\:bg-muted:hover {
+  background-color: var(--ctp-surface0);
+  color: var(--ctp-text);
+}
+
+.friend-view__scroll [data-slot="context-menu-trigger"]:hover {
+  background-color: var(--ctp-surface0);
+}
+
+button[data-variant="destructive"]:hover,
+button.destructive:hover {
+  background-color: color-mix(in oklab, var(--ctp-red) 25%, transparent);
+  color: var(--ctp-red);
+}
+button[data-variant="destructive"]:active,
+button.destructive:active {
+  background-color: color-mix(in oklab, var(--ctp-red) 35%, transparent);
+  color: var(--ctp-red);
+}
+[data-slot="toggle-group-item"][data-variant="destructive"][data-state="on"],
+[data-slot="toggle-group-item"].destructive[data-state="on"] {
+  background-color: var(--ctp-red);
+  color: var(--ctp-crust);
+}
+[data-vrcx-0-surface="data-table"] button[data-variant="destructive"]:hover {
+  background-color: color-mix(in oklab, var(--ctp-red) 25%, transparent);
+  color: var(--ctp-red);
+}
+
+[data-slot="tooltip-content"],
+[data-slot="popover-content"],
+[data-slot="dropdown-menu-content"],
+[data-slot="context-menu-content"],
+[data-slot="select-content"] {
+  background-color: var(--ctp-surface0);
+  border: 1px solid var(--ctp-surface1);
+  color: var(--ctp-text);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+}
+[data-slot="dropdown-menu-item"]:hover,
+[data-slot="dropdown-menu-item"][data-highlighted],
+[data-slot="context-menu-item"]:hover,
+[data-slot="context-menu-item"][data-highlighted],
+[data-slot="select-item"]:hover,
+[data-slot="select-item"][data-highlighted] {
+  background-color: var(--ctp-surface1);
+  color: var(--ctp-text);
+}
+
+[data-slot='dialog-overlay'],
+[data-slot='alert-dialog-overlay'] {
+  background-color: rgba(17, 17, 27, 0.6);
+}
+[data-slot='dialog-content'],
+[data-slot='alert-dialog-content'] {
+  background-color: var(--ctp-base);
+  border: 1px solid var(--ctp-surface1);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.45);
+}
+
+[data-slot="scroll-area-thumb"],
+[data-radix-scroll-area-thumb] {
+  background-color: var(--ctp-surface2);
+  border-radius: 9999px;
+}
+[data-slot="scroll-area-thumb"]:hover,
+[data-radix-scroll-area-thumb]:hover {
+  background-color: var(--ctp-overlay0);
+}
+
+[data-slot="input"],
+[data-slot="textarea"],
+input,
+textarea {
+  border-color: var(--ctp-surface1);
+  color: var(--ctp-text);
+  background-color: var(--ctp-surface0);
+}
+[data-slot="input"]:focus,
+[data-slot="textarea"]:focus,
+input:focus,
+textarea:focus {
+  border-color: var(--ctp-mauve);
+  box-shadow: 0 0 0 2px rgba(203, 166, 247, 0.2);
+}
+
+.vrcx-0-titlebar,
+.vrcx-0-sidebar-surface,
+.vrcx-0-side-panel,
+.vrcx-0-statusbar,
+.vrcx-0-data-table {
+  border-color: var(--ctp-surface0);
+}

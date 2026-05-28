@@ -5,6 +5,9 @@
     "trans-theme-example",
     "darkblue-theme",
     "aurora-theme",
-    "one-dark-theme"
+    "one-dark-theme",
+    "catppuccin-mocha-theme",
+    "nord-light-theme",
+    "oled-black-theme"
   ]
 }

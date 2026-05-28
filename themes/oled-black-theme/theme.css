@@ -1,0 +1,287 @@
+/*
+  OLED Black — Pure black theme for OLED displays.
+  Theme by: PuddingKC
+*/
+
+:root {
+  --oled-black: #000000;
+  --oled-surface1: #0a0a0a;
+  --oled-surface2: #121212;
+  --oled-surface3: #1a1a1a;
+  --oled-border: #222222;
+  --oled-border-subtle: #1a1a1a;
+  --oled-text: #e8e8e8;
+  --oled-text-secondary: #a0a0a0;
+  --oled-text-muted: #6a6a6a;
+  --oled-red: #f87171;
+  --oled-green: #4ade80;
+  --oled-yellow: #fbbf24;
+  --oled-cyan: #22d3ee;
+}
+
+.dark {
+  --background: var(--oled-black);
+  --foreground: var(--oled-text);
+  --card: var(--oled-surface1);
+  --card-foreground: var(--oled-text);
+  --popover: var(--oled-surface2);
+  --popover-foreground: var(--oled-text);
+
+  --primary-foreground: var(--oled-black);
+  --secondary: var(--oled-surface2);
+  --secondary-foreground: var(--oled-text);
+  --muted: var(--oled-surface1);
+  --muted-foreground: var(--oled-text-muted);
+  --accent: var(--oled-surface2);
+  --accent-foreground: var(--oled-text);
+  --destructive: var(--oled-red);
+  --destructive-foreground: var(--oled-black);
+  --border: var(--oled-border-subtle);
+  --input: var(--oled-surface1);
+  --input-foreground: var(--oled-text);
+
+  --success: var(--oled-green);
+  --success-foreground: var(--oled-black);
+  --warning: var(--oled-yellow);
+  --warning-foreground: var(--oled-black);
+  --info: var(--oled-cyan);
+  --info-foreground: var(--oled-black);
+
+  --switch-checked: var(--primary);
+  --switch-checked-thumb: var(--oled-black);
+  --switch-unchecked: var(--oled-surface3);
+  --switch-unchecked-thumb: var(--oled-text-muted);
+
+  --sidebar-primary: var(--primary);
+  --sidebar-primary-foreground: var(--oled-black);
+  --sidebar-accent: var(--oled-surface2);
+  --sidebar-accent-foreground: var(--oled-text);
+}
+
+:root {
+  --vrcx-0-app-surface: var(--oled-black);
+  --vrcx-0-titlebar-surface: var(--oled-black);
+  --vrcx-0-main-surface: var(--oled-black);
+  --vrcx-0-main-content-surface: var(--oled-black);
+  --vrcx-0-sidebar-surface: var(--oled-black);
+  --vrcx-0-sidebar-inset-surface: var(--oled-black);
+  --vrcx-0-side-panel-surface: var(--oled-surface1);
+  --vrcx-0-statusbar-surface: var(--oled-black);
+  --vrcx-0-table-surface: var(--oled-black);
+  --vrcx-0-table-header-surface: var(--oled-surface1);
+}
+
+.vrcx-0-titlebar,
+[data-vrcx-0-surface="titlebar"] {
+  background-color: var(--oled-black);
+  color: var(--oled-text);
+  border-bottom: 1px solid var(--oled-border-subtle);
+}
+
+.vrcx-0-sidebar-surface,
+[data-vrcx-0-surface="sidebar"] {
+  background-color: var(--oled-black);
+  border-right-color: var(--oled-border-subtle);
+  color: var(--oled-text);
+}
+
+[data-vrcx-0-surface="sidebar"] [aria-current="page"],
+[data-vrcx-0-surface="sidebar"] [data-state="active"],
+[data-vrcx-0-surface="sidebar"] [data-active="true"] {
+  background-color: var(--oled-surface2);
+  color: var(--primary);
+}
+
+[data-vrcx-0-surface="sidebar"] a:hover,
+[data-vrcx-0-surface="sidebar"] button:hover,
+[data-vrcx-0-surface="sidebar"] [role="button"]:hover {
+  background-color: var(--oled-surface1);
+  color: var(--oled-text);
+}
+
+.vrcx-0-side-panel,
+[data-vrcx-0-surface="side-panel"] {
+  background-color: var(--oled-surface1);
+  border-left-color: var(--oled-border-subtle);
+}
+
+.vrcx-0-statusbar,
+[data-vrcx-0-surface="statusbar"] {
+  background-color: var(--oled-black);
+  border-top-color: var(--oled-border-subtle);
+  color: var(--oled-text-muted);
+}
+
+.vrcx-0-main-content,
+[data-vrcx-0-surface="main-content"] {
+  background-color: var(--oled-black);
+}
+
+button:hover,
+a:hover {
+  background-color: var(--oled-surface2);
+  color: var(--primary);
+}
+
+[role="switch"][data-state="checked"] {
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+[role="switch"][data-state="unchecked"] {
+  background-color: var(--oled-surface3);
+}
+[role="switch"] span {
+  background-color: var(--oled-text-muted);
+}
+[role="switch"][data-state="checked"] span {
+  background-color: var(--oled-black);
+}
+
+::selection {
+  background-color: color-mix(in srgb, var(--primary) 35%, transparent);
+  color: #ffffff;
+}
+input::selection,
+textarea::selection {
+  background-color: color-mix(in srgb, var(--primary) 30%, transparent);
+  color: #ffffff;
+}
+
+[data-slot="toggle-group-item"][data-state="on"],
+[data-slot="toggle-group-item"][aria-pressed="true"] {
+  background-color: var(--primary);
+  color: var(--oled-black);
+}
+[data-slot="toggle-group-item"]:hover,
+[data-slot="toggle-group-item"]:active {
+  background-color: var(--oled-surface2);
+  color: var(--primary);
+}
+
+[data-slot="tabs-list"] [data-slot="tabs-trigger"][data-state="active"] {
+  background-color: var(--oled-surface2);
+  color: var(--primary);
+  box-shadow: inset 0 -2px 0 var(--primary);
+}
+[data-slot="tabs-list"] [data-slot="tabs-trigger"]:hover {
+  background-color: var(--oled-surface1);
+  color: var(--oled-text);
+}
+
+.vrcx-0-data-table,
+[data-vrcx-0-surface="data-table"] {
+  background-color: var(--oled-black);
+}
+.vrcx-0-table-header {
+  background-color: var(--oled-surface1);
+  color: var(--oled-text-secondary);
+}
+[data-vrcx-0-surface="data-table"] tbody tr:hover,
+[data-vrcx-0-surface="data-table"] tbody tr[data-state="selected"],
+[data-vrcx-0-surface="data-table"] tbody tr[aria-selected="true"] {
+  background-color: var(--oled-surface1);
+  color: var(--oled-text);
+}
+[data-vrcx-0-surface="data-table"] button:hover,
+[data-vrcx-0-surface="data-table"] a:hover {
+  background-color: transparent;
+  color: var(--primary);
+}
+[data-vrcx-0-surface="data-table"] [data-slot="badge"] {
+  border-color: var(--oled-border);
+  color: var(--oled-text-secondary);
+}
+
+[data-vrcx-0-surface="main-content"] .hover\:bg-muted:hover {
+  background-color: var(--oled-surface1);
+  color: var(--oled-text);
+}
+
+.friend-view__scroll [data-slot="context-menu-trigger"]:hover {
+  background-color: var(--oled-surface1);
+}
+
+button[data-variant="destructive"]:hover,
+button.destructive:hover {
+  background-color: color-mix(in oklab, var(--oled-red) 20%, transparent);
+  color: var(--oled-red);
+}
+button[data-variant="destructive"]:active,
+button.destructive:active {
+  background-color: color-mix(in oklab, var(--oled-red) 30%, transparent);
+  color: var(--oled-red);
+}
+[data-slot="toggle-group-item"][data-variant="destructive"][data-state="on"],
+[data-slot="toggle-group-item"].destructive[data-state="on"] {
+  background-color: var(--oled-red);
+  color: var(--oled-black);
+}
+[data-vrcx-0-surface="data-table"] button[data-variant="destructive"]:hover {
+  background-color: color-mix(in oklab, var(--oled-red) 20%, transparent);
+  color: var(--oled-red);
+}
+
+[data-slot="tooltip-content"],
+[data-slot="popover-content"],
+[data-slot="dropdown-menu-content"],
+[data-slot="context-menu-content"],
+[data-slot="select-content"] {
+  background-color: var(--oled-surface2);
+  border: 1px solid var(--oled-border);
+  color: var(--oled-text);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.8);
+}
+[data-slot="dropdown-menu-item"]:hover,
+[data-slot="dropdown-menu-item"][data-highlighted],
+[data-slot="context-menu-item"]:hover,
+[data-slot="context-menu-item"][data-highlighted],
+[data-slot="select-item"]:hover,
+[data-slot="select-item"][data-highlighted] {
+  background-color: var(--oled-surface3);
+  color: var(--oled-text);
+}
+
+[data-slot='dialog-overlay'],
+[data-slot='alert-dialog-overlay'] {
+  background-color: rgba(0, 0, 0, 0.75);
+}
+[data-slot='dialog-content'],
+[data-slot='alert-dialog-content'] {
+  background-color: var(--oled-surface1);
+  border: 1px solid var(--oled-border);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.9);
+}
+
+[data-slot="scroll-area-thumb"],
+[data-radix-scroll-area-thumb] {
+  background-color: var(--oled-surface3);
+  border-radius: 9999px;
+}
+[data-slot="scroll-area-thumb"]:hover,
+[data-radix-scroll-area-thumb]:hover {
+  background-color: var(--oled-text-muted);
+}
+
+[data-slot="input"],
+[data-slot="textarea"],
+input,
+textarea {
+  border-color: var(--oled-border);
+  color: var(--oled-text);
+  background-color: var(--oled-surface1);
+}
+[data-slot="input"]:focus,
+[data-slot="textarea"]:focus,
+input:focus,
+textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--primary) 15%, transparent);
+}
+
+.vrcx-0-titlebar,
+.vrcx-0-sidebar-surface,
+.vrcx-0-side-panel,
+.vrcx-0-statusbar,
+.vrcx-0-data-table {
+  border-color: var(--oled-border-subtle);
+}

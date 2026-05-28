@@ -1,0 +1,16 @@
+{
+  "id": "oled-black-theme",
+  "name": "OLED Black",
+  "version": "1.0.0",
+  "author": {
+    "name": "PuddingKC",
+    "github": "Null-K",
+    "url": "https://github.com/Null-K"
+  },
+  "description": "Pure black theme optimized for OLED displays.",
+  "tags": ["dark", "oled", "black", "minimal", "contrast"],
+  "testedWith": "2.3.0",
+  "remoteAssets": false,
+  "darkMode": true,
+  "accentMode": true
+}

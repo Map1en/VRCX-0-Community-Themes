@@ -1,0 +1,16 @@
+{
+  "id": "catppuccin-mocha-theme",
+  "name": "Catppuccin Mocha",
+  "version": "1.0.0",
+  "author": {
+    "name": "PuddingKC",
+    "github": "Null-K",
+    "url": "https://github.com/Null-K"
+  },
+  "description": "Warm dark theme based on the Catppuccin Mocha palette.",
+  "tags": ["dark", "catppuccin", "mocha", "pastel"],
+  "testedWith": "2.3.0",
+  "remoteAssets": false,
+  "darkMode": true,
+  "accentMode": false
+}

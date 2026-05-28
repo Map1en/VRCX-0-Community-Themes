@@ -16,6 +16,9 @@ https://raw.githubusercontent.com/Map1en/VRCX-0-Community-Themes/master/themes/i
 - [Darkblue Theme](themes/darkblue-theme/) by xiaoBingge114514
 - [Aurora Theme](themes/aurora-theme/) by PuddingKC
 - [One Dark Theme](themes/one-dark-theme/) by Dreaminko
+- [Catppuccin Mocha](themes/catppuccin-mocha-theme/) by PuddingKC
+- [Nord Light](themes/nord-light-theme/) by PuddingKC
+- [OLED Black](themes/oled-black-theme/) by PuddingKC
 
 ## Theme Developer Build
 

@@ -8,7 +8,7 @@ This repository is officially maintained by the VRCX-0 project, but submitted th
 
 To debug CSS, download the dedicated theme developer build from:
 
-https://github.com/Map1en/VRCX-0/actions/workflows/package-theme-devkit.yml
+https://github.com/Map1en/VRCX-0/actions/workflows/package-devkit.yml
 
 You can also generate quick skeleton previews with the third-party maintained preview generator:
 

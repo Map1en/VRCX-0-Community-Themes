@@ -11,9 +11,9 @@ content.
 - [Aurora Theme](themes/aurora-theme/) by PuddingKC
 - [One Dark Theme](themes/one-dark-theme/) by Dreaminko
 - [Catppuccin Mocha](themes/catppuccin-mocha-theme/) by PuddingKC
-- [Catppuccin Latte](themes/catppuccin-mocha-theme/) by PuddingKC
-- [Catppuccin Frappe](themes/catppuccin-mocha-theme/) by PuddingKC
-- [Catppuccin macchiato](themes/catppuccin-mocha-theme/) by PuddingKC
+- [Catppuccin Latte](themes/catppuccin-latte-theme/) by PuddingKC
+- [Catppuccin Frappe](themes/catppuccin-frappe-theme/) by PuddingKC
+- [Catppuccin macchiato](themes/catppuccin-macchiato-theme/) by PuddingKC
 - [Nord Light](themes/nord-light-theme/) by PuddingKC
 - [OLED Black](themes/oled-black-theme/) by PuddingKC
 

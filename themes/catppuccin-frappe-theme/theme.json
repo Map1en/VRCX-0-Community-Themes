@@ -1,0 +1,16 @@
+{
+  "id": "catppuccin-frappe-theme",
+  "name": "Catppuccin Frappe",
+  "version": "1.0.0",
+  "author": {
+    "name": "PuddingKC",
+    "github": "Null-K",
+    "url": "https://github.com/Null-K"
+  },
+  "description": "Muted aesthetic dark theme based on the Catppuccin Frappe palette.",
+  "tags": ["dark", "catppuccin", "muted"],
+  "testedWith": "2.9.1",
+  "remoteAssets": false,
+  "darkMode": true,
+  "accentMode": false
+}

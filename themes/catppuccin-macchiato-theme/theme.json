@@ -1,0 +1,16 @@
+{
+  "id": "catppuccin-macchiato-theme",
+  "name": "Catppuccin Macchiato",
+  "version": "1.0.0",
+  "author": {
+    "name": "PuddingKC",
+    "github": "Null-K",
+    "url": "https://github.com/Null-K"
+  },
+  "description": "Medium contrast with gentle colors dark theme based on the Catppuccin Macchiato palette.",
+  "tags": ["dark", "catppuccin", "gentle"],
+  "testedWith": "2.9.1",
+  "remoteAssets": false,
+  "darkMode": true,
+  "accentMode": false
+}

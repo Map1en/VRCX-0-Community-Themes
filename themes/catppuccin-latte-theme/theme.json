@@ -1,0 +1,16 @@
+{
+  "id": "catppuccin-latte-theme",
+  "name": "Catppuccin Latte",
+  "version": "1.0.0",
+  "author": {
+    "name": "PuddingKC",
+    "github": "Null-K",
+    "url": "https://github.com/Null-K"
+  },
+  "description": "Warm dark theme based on the Catppuccin Latte palette.",
+  "tags": ["light", "catppuccin", "pastel"],
+  "testedWith": "2.3.0",
+  "remoteAssets": false,
+  "darkMode": false,
+  "accentMode": false
+}

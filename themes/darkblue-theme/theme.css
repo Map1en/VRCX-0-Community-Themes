@@ -1,219 +1,349 @@
-/* Darkblue Theme */
+/*
+  Darkblue Theme — deep blue palette for VRCX-0.
+  Theme by: xiaoBingge114514
 
+  配色走 VRCX-0 的变量入口（:root / :root.dark / .dark），个别组件
+  （tabs、switch、弹窗与卡片分区、好友卡片、secondary 按钮等）用 data-slot
+  钩子做定点修正。变量口径参考 docs/css-hooks.md 与内置 token。
+
+  所有声明都带 !important：应用的样式位于 @layer utilities，而主题快照被加载到
+  更早的层；分层样式之间由层顺序决定胜负（与选择器优先级无关），普通声明会被
+  utilities 层压掉 —— 这就是"改了没生效"的原因。!important 在层之间是反向优先，
+  能反过来压过 utilities，因此这里沿用旧版主题的做法，逐条显式声明。
+
+  例外：与应用正面冲突的少数规则（如菜单里 destructive 项的高亮）需要放进同一个
+  @layer utilities。因为 !important 的层间顺序是反的 —— 未分层的 !important 最弱，
+  分层的反而更强；放进同一层后才会退回比选择器优先级（配合 :root.dark 前缀提升）。
+*/
+
+:root,
+:root.dark,
 .dark {
   /* 基础 */
-  --background: hsl(216, 17%, 11%) !important;           /*  页面背景 */
-  --foreground: hsl(210, 15%, 100%) !important;          /*  主文本 */
-  
+  --background: hsl(216, 17%, 11%) !important;
+  --foreground: hsl(210, 15%, 100%) !important;
+
   /* 卡片与浮层 */
-  --card: hsl(210, 15%, 17%) !important;                /* 卡片/描述列表背景 */
-  --card-foreground: hsl(210, 15%, 100%) !important;    /* #ffffff */
-  --popover: hsl(210, 15%, 17%) !important;             /*  弹出层背景 */
-  --popover-foreground: hsl(210, 15%, 100%) !important; /* #ffffff */
-  
+  --card: hsl(210, 15%, 17%) !important;
+  --card-foreground: hsl(210, 15%, 100%) !important;
+  --popover: hsl(210, 15%, 17%) !important;
+  --popover-foreground: hsl(210, 15%, 100%) !important;
+
   /* 主题色 */
-  --primary: #66b1ff !important;                        /* 主题蓝 */
-  --primary-foreground: hsl(210, 15%, 6%) !important;   /* 主色上的文本 */
-  --sidebar-accent: rgba(102, 177, 255, 0.3) !important;/* 侧边栏强调背景（半透明主色） */
+  --primary: #66b1ff !important;
+  --primary-foreground: hsl(210, 15%, 6%) !important;
 
-  --secondary: hsl(210, 15%, 20%) !important;           /* 次要按钮背景 */
-  --secondary-foreground: hsl(210, 15%, 78%) !important; /* 次要按钮文本 */
-  
-  --muted: hsl(210, 15%, 13%) !important;              /* 静音背景 */
-  --muted-foreground: hsl(210, 15%, 70%) !important;   /* 静音/次要文本 */
-  
-  --accent: hsl(212, 25%, 37%) !important;             /* 悬停/强调背景 */
-  --accent-foreground: hsl(210, 15%, 100%) !important; /* #ffffff */
+  /* 次要与静音 */
+  --secondary: hsl(210, 15%, 20%) !important;
+  --secondary-foreground: hsl(210, 15%, 78%) !important;
+  --muted: hsl(210, 15%, 13%) !important;
+  --muted-foreground: hsl(210, 15%, 70%) !important;
+  --accent: hsl(212, 25%, 37%) !important;
+  --accent-foreground: hsl(210, 15%, 100%) !important;
 
-  --destructive: oklch(70.4% .191 22.216);
-  --destructive-foreground: oklch(98.5% 0 0);
-  
+  /* 危险色沿用应用语义，仅对齐前景 */
+  --destructive: oklch(70.4% 0.191 22.216) !important;
+  --destructive-foreground: oklch(98.5% 0 0) !important;
+
   /* 边框与输入 */
-  --border: hsl(210, 15%, 23%) !important;             /* 基础边框 */
-  --input: hsl(210, 15%, 20%) !important;              /* 输入框背景 */
-  --input-foreground: hsl(210, 15%, 100%) !important;  /* #ffffff */
-  --ring: hsl(210, 15%, 33%) !important;               /* focus边框色 */
-  
-  /* 语义化扩展（可选） */
+  --border: hsl(210, 15%, 23%) !important;
+  --input: hsl(210, 15%, 20%) !important;
+  --input-foreground: hsl(210, 15%, 100%) !important;
+  --ring: #66b1ff !important;
+
+  /* 语义扩展 */
   --success: #67c23a !important;
   --success-foreground: hsl(210, 15%, 100%) !important;
   --warning: #e6a23c !important;
-  --warning-foreground: hsl(210, 15%, 100%) !important;
+  --warning-foreground: hsl(210, 15%, 6%) !important;
   --info: #909399 !important;
   --info-foreground: hsl(210, 15%, 100%) !important;
 
-  /* Switch 专用变量（新增） */
-  --switch-checked: #66b1ff !important;                  /* 开启状态轨道 */
-  --switch-checked-thumb: #ffffff !important;            /* 开启状态滑块 */
-  --switch-unchecked: hsl(210, 15%, 13%) !important;     /* 关闭状态轨道 */
-  --switch-unchecked-thumb: hsl(0, 0%, 100%) !important; /* 关闭状态滑块 */
+  /* 开关（2.32.0 的 switch 轨道读 --primary / --input，这里按旧版配色设计接管，见文件末尾） */
+  --switch-checked: #73b8ff !important;                    /* 开启态轨道：主题蓝 */
+  --switch-checked-thumb: hsl(210, 100%, 95%) !important;  /* 开启态滑块：主题浅蓝（提亮，避免与蓝色轨道糊在一起） */
+  --switch-unchecked: hsl(210, 15%, 26%) !important;       /* 关闭态轨道：比背景亮一档，不再与背景糊在一起 */
+  --switch-unchecked-thumb: hsl(0, 0%, 100%) !important;   /* 关闭态滑块：白色 */
+
+  /* 侧边栏 token 集 */
+  --sidebar: #1a1d28 !important;
+  --sidebar-foreground: hsl(210, 15%, 100%) !important;
+  --sidebar-primary: #66b1ff !important;
+  --sidebar-primary-foreground: hsl(210, 15%, 6%) !important;
+  --sidebar-accent: rgba(102, 177, 255, 0.3) !important;
+  --sidebar-accent-foreground: hsl(210, 15%, 100%) !important;
+  --sidebar-border: hsl(210, 15%, 23%) !important;
+  --sidebar-ring: #66b1ff !important;
+
+  /* 语义表面（2.32.0 组件直接消费，例如 bg-surface-interactive） */
+  --surface-canvas: hsl(216, 17%, 11%) !important;
+  --surface-shell: hsl(216, 18%, 9%) !important;
+  --surface-panel: hsl(210, 15%, 17%) !important;
+  --surface-raised: hsl(210, 15%, 17%) !important;
+  --surface-overlay: hsl(210, 15%, 17%) !important;
+  --surface-interactive: hsl(210, 15%, 20%) !important;
+  --surface-interactive-hover: hsl(212, 22%, 28%) !important;
+
+  /* 文字层级 */
+  --content-primary: hsl(210, 15%, 96%) !important;
+  --content-secondary: hsl(210, 15%, 78%) !important;
+  --content-tertiary: hsl(210, 15%, 60%) !important;
+  --content-disabled: hsl(210, 15%, 45%) !important;
+
+  /* 描边 */
+  --stroke-subtle: hsl(210, 15%, 18%) !important;
+  --stroke-default: hsl(210, 15%, 23%) !important;
+  --stroke-strong: hsl(210, 15%, 33%) !important;
+  --border-subtle: hsl(210, 15%, 18%) !important;
+  --border-hover: hsl(210, 15%, 30%) !important;
+
+  /* 交互状态：替代旧版逐组件写死的悬停/选中蓝色 */
+  --state-hover-surface: rgba(102, 177, 255, 0.25) !important;
+  --state-pressed-surface: rgba(102, 177, 255, 0.35) !important;
+  --state-selected-surface: rgba(102, 177, 255, 0.3) !important;
+  --state-selected-hover-surface: rgba(102, 177, 255, 0.38) !important;
+
+  /* 面板表面 */
+  --vrcx-0-app-surface: hsl(216, 17%, 11%) !important;
+  --vrcx-0-titlebar-surface: hsl(216, 17%, 11%) !important;
+  --vrcx-0-main-surface: hsl(216, 17%, 11%) !important;
+  --vrcx-0-main-content-surface: hsl(216, 17%, 11%) !important;
+  --vrcx-0-sidebar-surface: #1a1d28 !important;
+  --vrcx-0-sidebar-inset-surface: hsl(216, 17%, 11%) !important;
+  --vrcx-0-side-panel-surface: hsl(216, 17%, 11%) !important;
+  --vrcx-0-statusbar-surface: hsl(216, 17%, 11%) !important;
+
+  /* 表格 / 动态列表 */
+  --vrcx-0-table-surface: hsl(216, 17%, 11%) !important;
+  --vrcx-0-table-header-surface: hsl(210, 15%, 14%) !important;
+  --vrcx-0-table-header-foreground: hsl(210, 15%, 70%) !important;
+  --vrcx-0-table-row-hover-surface: rgba(59, 130, 246, 0.25) !important;
+  --vrcx-0-table-row-selected-surface: rgba(59, 130, 246, 0.38) !important;
+  --vrcx-0-table-row-selected-hover-surface: rgba(59, 130, 246, 0.45) !important;
+  --vrcx-0-table-row-expanded-surface: hsl(210, 15%, 13%) !important;
+  --vrcx-0-table-border: hsl(210, 15%, 20%) !important;
+  --vrcx-0-table-divider: hsl(210, 15%, 20%) !important;
+  --vrcx-0-table-sticky-edge: hsl(210, 15%, 20%) !important;
+
+  /* 工具栏控件 */
+  --vrcx-0-toolbar-control-surface: hsl(210, 15%, 17%) !important;
+  --vrcx-0-toolbar-control-hover-surface: hsl(212, 22%, 26%) !important;
+  --vrcx-0-toolbar-control-border: hsl(210, 15%, 25%) !important;
+  --vrcx-0-toolbar-group-surface: hsl(210, 15%, 15%) !important;
+  --vrcx-0-toolbar-group-border: hsl(210, 15%, 23%) !important;
+
+  /* 工具栏条目（选中/悬停态） */
+  --vrcx-0-toolbar-item-foreground: hsl(210, 15%, 70%) !important;
+  --vrcx-0-toolbar-item-hover-surface: rgba(102, 177, 255, 0.22) !important;
+  --vrcx-0-toolbar-item-selected-surface: rgba(102, 177, 255, 0.3) !important;
+  --vrcx-0-toolbar-item-selected-hover-surface: rgba(102, 177, 255, 0.38) !important;
+  --vrcx-0-toolbar-item-selected-foreground: hsl(210, 15%, 100%) !important;
+
+  /* 对象 / 卡片（列表项与卡片容器） */
+  --object-surface: hsl(210, 15%, 17%) !important;
+  --object-surface-hover: hsl(212, 22%, 22%) !important;
+  --object-border: hsl(210, 15%, 23%) !important;
+  --object-border-hover: hsl(210, 15%, 33%) !important;
+  --object-selected-border: #66b1ff !important;
+  --object-selected-surface: rgba(102, 177, 255, 0.22) !important;
+
+  /* 静默控件（纯图标按钮） */
+  --control-quiet-foreground: hsl(210, 15%, 78%) !important;
+  --control-quiet-hover-foreground: hsl(210, 15%, 96%) !important;
+  --control-quiet-hover-surface: rgba(102, 177, 255, 0.22) !important;
+  --control-quiet-active-surface: rgba(102, 177, 255, 0.32) !important;
+
+  /* 表格斑马纹与焦点 */
+  --vrcx-0-table-row-striped-surface: hsl(210, 15%, 14%) !important;
+  --vrcx-0-table-striped-divider: hsl(210, 15%, 20%) !important;
+  --vrcx-0-table-row-focus: #66b1ff !important;
+
+  /* 动态流与工作区 */
+  --vrcx-0-feed-row-arrival-surface: hsl(212, 22%, 20%) !important;
+  --vrcx-0-workspace-divider: hsl(210, 15%, 20%) !important;
+  --vrcx-0-main-content-edge: hsl(210, 15%, 20%) !important;
+  --vrcx-0-resize-accent-active: #66b1ff !important;
+
+  /* 图表 */
+  --chart-1: #66b1ff !important;
+  --chart-2: #67c23a !important;
+  --chart-3: #e6a23c !important;
+  --chart-4: #b180d7 !important;
+  --chart-5: #f56c6c !important;
 }
 
-.dark [role="switch"][data-state="checked"] {
+/* 选中文本没有对应 token，保留一条最小选择器。 */
+::selection {
+  background-color: rgba(102, 177, 255, 0.55) !important;
+  color: #ffffff !important;
+}
+
+/* --- 浮层内容：变量覆盖不到，弹窗/菜单内部用固定 class --- */
+
+[data-slot="tooltip-content"],
+[data-slot="popover-content"],
+[data-slot="dropdown-menu-content"],
+[data-slot="context-menu-content"],
+[data-slot="select-content"],
+[data-slot="hover-card-content"] {
+  background-color: var(--popover) !important;
+  border: 1px solid var(--border) !important;
+  color: var(--popover-foreground) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35) !important;
+}
+
+/* 菜单项 / 子菜单项高亮。
+   应用的高亮状态是 :focus（普通项 focus:bg-accent，危险项 focus:bg-destructive/10），
+   菜单项另有 [data-highlighted]，子菜单触发器还有 data-open / data-popup-open
+   （展开子菜单时保持高亮）；全部一并接管，避免"有的项浅蓝、有的项还是深蓝"。
+   排除危险项（data-variant="destructive"），让它们保留应用默认的危险色高亮。 */
+:is(
+  [data-slot="dropdown-menu-item"],
+  [data-slot="dropdown-menu-sub-trigger"],
+  [data-slot="context-menu-item"],
+  [data-slot="select-item"]
+):not([data-variant="destructive"]):is(:hover, :focus, [data-highlighted], [data-open], [data-popup-open]) {
+  background-color: var(--state-hover-surface) !important;
+  color: var(--foreground) !important;
+}
+
+/* 危险项（删除、举报等）保持淡红高亮。
+   应用只给了 focus:bg-destructive/10（dark 下 /20），它的 dark 变体写成
+   :is(.dark *) 组合，并且位于 @layer utilities + 带 !important。
+   按 CSS 的层叠规则，!important 在层之间是反向优先的：未分层的 !important 最弱，
+   分层的反而更强 —— 所以之前那版（未分层 !important）一直被压掉。
+   对策：把规则放进同一个 @layer utilities，再用 :root.dark 提高优先级胜过它。
+   每处写两行：第一行写死的红色兜底，第二行跟随主题变量。 */
+@layer utilities {
+  :root.dark :is(
+    [data-slot="dropdown-menu-item"],
+    [data-slot="dropdown-menu-sub-trigger"],
+    [data-slot="context-menu-item"],
+    [data-slot="select-item"]
+  )[data-variant="destructive"]:is(:hover, :focus, :focus-visible, :focus-within, [data-highlighted], [data-open], [data-popup-open]) {
+    background-color: rgba(239, 68, 68, 0.2) !important;
+    background-color: color-mix(in oklab, var(--destructive) 18%, transparent) !important;
+    color: #ef4444 !important;
+    color: var(--destructive) !important;
+  }
+}
+
+[data-slot="dialog-overlay"],
+[data-slot="alert-dialog-overlay"] {
+  background-color: rgba(10, 12, 18, 0.6) !important;
+}
+
+[data-slot="dialog-content"],
+[data-slot="alert-dialog-content"] {
+  background-color: var(--popover) !important;
+  border: 1px solid var(--border) !important;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.45) !important;
+}
+
+/* 玩家详情等弹窗内的卡片分区：这些容器里应用用的是 bg-card / bg-background /
+   bg-muted 固定 class，弹窗底色与卡片同为 --popover 时分区看不出来，所以显式分层。 */
+[data-slot="dialog-content"] [data-slot="card"],
+[data-slot="alert-dialog-content"] [data-slot="card"],
+[data-slot="hover-card-content"] [data-slot="card"],
+[data-slot="dialog-content"] .bg-card,
+[data-slot="alert-dialog-content"] .bg-card,
+[data-slot="hover-card-content"] .bg-card,
+[data-slot="dialog-content"] .bg-background,
+[data-slot="alert-dialog-content"] .bg-background,
+[data-slot="hover-card-content"] .bg-background {
+  background-color: hsl(210, 15%, 21%) !important;
+}
+
+[data-slot="dialog-content"] .bg-muted,
+[data-slot="alert-dialog-content"] .bg-muted,
+[data-slot="hover-card-content"] .bg-muted {
+  background-color: hsl(210, 15%, 13%) !important;
+}
+
+/* --- tabs 槽底 ---
+   应用给"带槽底"的 tabs 用 bg-(--state-pressed-surface)，该变量在深蓝主题里偏亮。
+   这里只压暗这些 tabs 的槽底（水平：好友页；垂直：设置页），
+   不碰侧栏 rail 那排（它没有槽底 class），也不改全局按压/展开态变量。 */
+[data-slot="tabs-list"][class*="bg-(--state-pressed-surface)"] {
+  background-color: hsl(216, 17%, 15%) !important;
+}
+
+/* 未选中 tab 的悬停文字：应用默认用 --muted-foreground（70%）偏灰，
+   提到 90% 让悬停反馈更清楚；选中态仍由 data-active:text-foreground 控制。 */
+[data-slot="tabs-list"][class*="bg-(--state-pressed-surface)"] [data-slot="tabs-tab"]:hover {
+  color: hsl(210, 15%, 90%) !important;
+}
+
+/* --- 卡片式元素的悬停高亮（好友卡片 / 活动卡片 / 世界卡片等） ---
+   应用给它们写的是 hover:bg-[color-mix(in_oklch,var(--object-surface),var(--foreground)7%)]，
+   只混 7% 前景色，变化太轻；这里与其他按钮统一，直接用 --state-hover-surface 的亮蓝。
+   判据取卡片底色类 bg-object-surface —— 头像 / 名字那些只有悬浮预览的小触发器不带它，
+   侧栏列表项也不带，因此不会误伤。 */
+[class*="bg-object-surface"]:hover {
+  background-color: var(--state-hover-surface) !important;
+}
+
+/* --- 开关（按旧版主题的开关配色设计接管） ---
+   2.32.0 的 switch 轨道读 --primary / --input，滑块在选中态读 --primary-foreground
+   （本主题里是深蓝 6%，压在深色背景上几乎看不见）。这里显式用主题的开关变量着色：
+   轨道 = --switch-checked / --switch-unchecked，滑块 = --switch-*-thumb。 */
+[data-slot="switch"][data-checked] {
   background-color: var(--switch-checked) !important;
   border-color: var(--switch-checked) !important;
 }
 
-.dark [role="switch"][data-state="unchecked"] {
+[data-slot="switch"][data-unchecked] {
   background-color: var(--switch-unchecked) !important;
 }
 
-.dark [role="switch"] span {
-  /* 滑块颜色 */
+[data-slot="switch"] [data-slot="switch-thumb"] {
   background-color: var(--switch-unchecked-thumb) !important;
+  /* 与轨道分层：浅色滑块直接压在蓝色轨道上会“糊”，加一层浅阴影让边界清楚。 */
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.35) !important;
 }
 
-.dark [role="switch"][data-state="checked"] span {
+[data-slot="switch"][data-checked] [data-slot="switch-thumb"] {
   background-color: var(--switch-checked-thumb) !important;
 }
 
-/* 输入框被选中文本颜色 */
-.dark input::selection,
-.dark textarea::selection {
-background-color: rgba(102, 177, 255, 0.4) !important;  /* 主色 #66b1ff 半透明 */
-color: #ffffff !important;
+/* --- ghost / outline / secondary 按钮的悬停高亮 ---
+   应用给它们的悬停写法各不相同，在深色主题里都不明显：
+     ghost     → hover:bg-(--state-hover-surface)，部分入口直接是 hover:bg-transparent
+     outline   → dark:hover:bg-input/50（--input 半透明，偏暗）
+     secondary → 只混 5% 前景色
+   这里统一成同一个亮蓝（与菜单项、卡片一致）。
+   :is(...) 限定在按钮类元素上，避免命中 data-variant="secondary" 的 badge；
+   并把 data-slot 为 tooltip-trigger / dropdown-menu-trigger 等非 "button" 的按钮一并覆盖。 */
+:is(button, [data-slot="button"], [data-slot$="-trigger"]):is([data-variant="ghost"], [data-variant="outline"], [data-variant="secondary"]):hover {
+  background-color: var(--state-hover-surface) !important;
 }
 
-/* --- 输入框外的全局选中文本颜色 --- */
-::selection {
-    background-color: rgba(102, 177, 255, 0.55) !important; /* 全局选中文本使用更明显的半透明主色背景 */
-    color: #ffffff !important;
+/* --- 已选中标记（缩略图/头像左上角带勾的圆点） ---
+   应用写法：.bg-primary { background-color: var(--primary) }，勾色来自
+   text-primary-foreground；外环由 ring-background 的 --tw-ring-color 决定，
+   该变量解析不到时会 fallback 到 currentcolor。
+   这里刻意不引用任何主题变量，只用具体色值 —— 否则 --primary 一旦解析失败，
+   整个标记会跟着透明/失效：
+     勾 = 主题浅蓝 hsl(210, 100%, 95%)，外环跟随勾色（currentcolor）。
+   两条勾规则分开写：不支持 :has() 的环境会整条丢弃第一条，第二条仍能兜住。 */
+.bg-primary:has(svg.lucide-check) {
+  color: hsl(210, 100%, 95%) !important;
 }
 
-/* --- 侧边栏背景优化：深空静谧蓝 (低饱和/不显眼) --- */
-/* 使用与页面背景 --background 颜色一致的深蓝基底 */
-.vrcx-0-sidebar-surface {
-background-color: #1A1D28 !important; /* 比原背景稍深一点的藏青 */
-border-color: rgba(102, 177, 255, 0.1) !important; /* 极淡的描边 */
+span.bg-primary.text-primary-foreground {
+  color: hsl(210, 100%, 95%) !important;
 }
 
-/* --- 状态栏颜色同步 --- */
-/* 锁定状态栏元素，设置背景色为 --background 变量 */
-[data-vrcx-0-surface="statusbar"] {
-    background-color: var(--background) !important;
+.ring-background,
+.ring-background\/80 {
+  --tw-ring-color: currentcolor !important;
 }
 
-/* --- 深蓝主题增强：加深卡片层级 --- */
-/* 目标：让卡片比基础背景（#1E1F26）稍微深一点，增加立体感 */
-.bg-card {
-background-color: #2A313C !important; 
-}
-
-
-/* --- 全局按钮与链接悬停高亮 --- */
-button:hover,
-a:hover {
-    background-color: rgba(102, 177, 255, 0.25) !important; /* 全局统一的半透明蓝色悬停背景 */
-    color: #66b1ff !important; /* 悬停时文字统一变为你的主题蓝 */
-}
-
-/* 1. 选中/激活状态*/
-[data-slot="toggle-group-item"][data-state="on"],
-[data-slot="toggle-group-item"][aria-pressed="true"] {
-    background-color: #2563EB !important;
-    color: #ffffff !important;
-}
-
-/* 2. 悬停与点击瞬间的状态 */
-[data-slot="toggle-group-item"]:hover,
-[data-slot="toggle-group-item"]:active {
-    background-color: rgba(102, 177, 255, 0.25) !important;
-    color: #66b1ff !important;
-}
-
-/* 3. 顺便把外层 group 容器的鼠标事件限制解除（以防万一） */
-.group [data-slot="toggle-group-item"] {
-    pointer-events: auto !important;
-}
-
-/* --- 局部高亮：仅限好友位置内的卡片 --- */
-
-/* 1. 核心规则：仅当卡片位于好友位置容器内时，才应用悬停效果 */
-.friend-view__scroll [data-slot="context-menu-trigger"]:hover {
-    background-color: rgba(102, 177, 255, 0.25) !important
-}
-
-/* --- 局部高亮：仅限 DataTable 内的行 --- */
-
-/* 1. 锁定 DataTable 内的表格行，设置统一的悬停与选中背景色 */
-[data-vrcx-0-surface="data-table"] tbody tr:hover,
-[data-vrcx-0-surface="data-table"] tbody tr[data-state="selected"],
-[data-vrcx-0-surface="data-table"] tbody tr[aria-selected="true"] {
-    background-color: rgba(59, 130, 246, 0.25) !important; /* 深邃半透明蓝 */
-    color: #FFFFFF !important; /* 保证文字在深色背景下清晰可见 */
-}
-
-/* 2. 确保 DataTable 内单元格里的按钮、链接等交互元素保持协调 */
-[data-vrcx-0-surface="data-table"] button:hover,
-[data-vrcx-0-surface="data-table"] a:hover {
-    background-color: transparent !important; /* 取消独立元素的悬停背景 */
-    color: #60A5FA !important; /* 统一使用稍亮的蓝色文字 */
-}
-
-/* 3. 如果 DataTable 内部也有 Badge (徽章) 组件，同步其边框和文字颜色 */
-[data-vrcx-0-surface="data-table"] [data-slot="badge"] {
-    border-color: rgba(59, 130, 246, 0.5) !important;
-    color: #60A5FA !important;
-}
-
-/* --- 为主内容区内收藏＆分组的按钮添加悬停高亮 --- */
-
-/* 核心修复：锁定 data-vrcx-0-surface="main-content" 下的 hover:bg-muted 元素 */
-[data-vrcx-0-surface="main-content"] .hover\:bg-muted:hover {
-    background-color: rgba(102, 177, 255, 0.25) !important; /* 你的主题半透明蓝 */
-    color: #66b1ff !important; /* 文字同步变蓝 */
-}
-
-/* --- 好友位置 Tabs 主题化高亮 --- */
-
-/* 1. 选中态 (Active)：强制应用主题蓝背景 + 白字 */
-[data-slot="tabs-list"] [data-slot="tabs-trigger"][data-state="active"] {
-    background-color: #66b1ff !important; /* 你的主题主色 */
-    color: #ffffff !important;            /* 选中时文字变白，对比度更高 */
-}
-
-
-/* --- 排除危险按钮 (Destructive) 的高亮变色 --- */
-
-/* 1. 保护普通危险按钮的悬停与点击状态 */
-button[data-variant="destructive"]:hover,
-button.destructive:hover,
-button.danger:hover {
-    /* 悬停时加深到 30% 的不透明度，模拟原本的亮红效果 */
-    background-color: color-mix(in oklab, var(--destructive) 30%, transparent) !important; 
-    color: var(--destructive) !important; /* 文字保持鲜艳的危险色 */
-}
-
-button[data-variant="destructive"]:active,
-button.destructive:active,
-button.danger:active {
-    /* 点击瞬间进一步加深到 40%，提供扎实的按压反馈 */
-    background-color: color-mix(in oklab, var(--destructive) 40%, transparent) !important;
-    color: var(--destructive) !important;
-}
-
-/* 2. 保护 Toggle Group 内的危险选项选中态 */
-[data-slot="toggle-group-item"][data-variant="destructive"][data-state="on"],
-[data-slot="toggle-group-item"].destructive[data-state="on"] {
-    /* 选中态保持标准的危险色背景 */
-    background-color: var(--destructive) !important; 
-    color: var(--destructive-foreground) !important; /* 配套的前景文字色（通常是白色） */
-}
-
-/* 3. 保护 DataTable 内部嵌套的危险按钮 */
-[data-vrcx-0-surface="data-table"] button[data-variant="destructive"]:hover {
-    background-color: color-mix(in oklab, var(--destructive) 30%, transparent) !important;
-    color: var(--destructive) !important;
-}
-
-/* 4. 保护main-content内部的危险按钮（如果有的话） */
-[data-vrcx-0-surface="main-content"] .hover\:bg-muted:hover button[data-variant="destructive"] {
-    background-color: color-mix(in oklab, var(--destructive) 30%, transparent) !important;
-    color: var(--destructive) !important;
-}
-
-/* 5. 保护Tabs-list内部的危险按钮（如果有的话） */
-[data-slot="tabs-list"] [data-slot="tabs-trigger"]:hover button[data-variant="destructive"] {
-    background-color: color-mix(in oklab, var(--destructive) 30%, transparent) !important;
-    color: var(--destructive) !important;
+/* --- 卡片区块的透明变体（bg-card/40、bg-card/60 …） ---
+   应用把它们写成 bg-card/40 这类（--card 混合 transparent），并包在 @supports 里
+   —— @supports 只作条件判断，不影响优先级。
+   实测：给它们任何实色（包括 --card）都会与周围色调对不上（看着偏暖/偏红），
+   保持透明、让主题背景透出来反而最协调，所以这里统一置为透明。 */
+[class*="bg-card/"] {
+  background-color: transparent !important;
 }

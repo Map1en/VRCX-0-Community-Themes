@@ -1,7 +1,7 @@
 {
   "id": "darkblue-theme",
   "name": "Darkblue Theme",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "author": {
     "name": "小槟哥",
     "github": "xiaoBingge114514",
@@ -10,7 +10,7 @@
 
   "description": "Deep blue cohesive theme for VRCX-0 featuring a dark background, harmonized sidebar surfaces, and status bar.",
   "tags": ["dark", "blue", "minimal"],
-  "testedWith": "2.2.1",
+  "testedWith": "2.32.0",
   "remoteAssets": false,
   "darkMode": true,
   "accentMode": false

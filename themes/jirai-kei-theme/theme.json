@@ -1,0 +1,19 @@
+{
+  "id": "jirai-kei-theme",
+  "name": "Jirai Kei · Windose Dark",
+  "version": "1.0.0",
+  "author": {
+    "name": "FuLuTang",
+    "github": "FuLuTang"
+  },
+  "description": "Pink Win98-style window chrome, dark jirai-kei panels, pixel controls, lace, hearts and photo-corner decorations. Self-contained dark theme with embedded assets.",
+  "tags": [
+    "dark",
+    "jirai-kei",
+    "pixel"
+  ],
+  "testedWith": "2.35.0-beta.2",
+  "remoteAssets": false,
+  "darkMode": true,
+  "accentMode": false
+}

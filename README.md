@@ -19,6 +19,8 @@ content.
 
 - [VS Code Dark](themes/vscode-dark-theme/) by FuLuTang
 
+- [Jirai Kei · Windose Dark](themes/jirai-kei-theme/) by FuLuTang
+
 ## Documentation
 
 - Submit, update, or author a theme: `CONTRIBUTING.md`
